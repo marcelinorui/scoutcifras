@@ -1,8 +1,8 @@
 /*******************************************************************************************************/
-/*                                           Chinês (pequeno)                                          */
+/*                                           ChinÃªs (pequeno)                                          */
 /*******************************************************************************************************/
 image_cifra.push({nome: 'CCp', dic: [
- { letra: 'A', imagem: 'data:image/gif;base64,R0lGODlhFAAUAHAAACH5BAEAAAEALAAAAAAUABQAgAAAAAAAAAIijI+pAevY3oty0ZouPnozn4GQyJFGt6GYWrGSO5mfCctLAQA7'}
+  { letra: 'A', imagem: 'data:image/gif;base64,R0lGODlhFAAUAHAAACH5BAEAAAEALAAAAAAUABQAgAAAAAAAAAIijI+pAevY3oty0ZouPnozn4GQyJFGt6GYWrGSO5mfCctLAQA7'}
 , { letra: 'B', imagem: 'data:image/gif;base64,R0lGODlhFAAUAHAAACH5BAEAAAEALAAAAAAUABQAgAAAAAAAAAImjI+pAevY3oty0ZouPnozn4GQaADmiaYnR5bt13abjNGVLeGvUwAAOw=='}
 , { letra: 'C', imagem: 'data:image/gif;base64,R0lGODlhFAAUAHAAACH5BAEAAAEALAAAAAAUABQAgAAAAAAAAAInjI+pAevY3oty0ZouPnozn4EcQJbmSXKigbanun5xt9GYXeGSHj8FADs='}
 , { letra: 'D', imagem: 'data:image/gif;base64,R0lGODlhFAAUAHAAACH5BAEAAAEALAAAAAAUABQAgAAAAAAAAAIojI+pAevY3oty0ZouPnozDwHiSJYiB3LmSqIpw8bu2201dle5tL9SAQA7'}
@@ -31,4 +31,4 @@ image_cifra.push({nome: 'CCp', dic: [
 , { letra: 'Z', imagem: 'data:image/gif;base64,R0lGODlhFAAUAHAAACH5BAEAAAEALAAAAAAUABQAgAAAAAAAAAIyjI+pAezd1oHPSUPzxZVu7UnASJYmOXWWeLZlCn7uDKvXTHPxjbe19lFFbsJNcWhMHgoAOw=='}
 ]});
 
-cifras_selection.push({ titulo: 'Chinês (pequeno)', nome: 'CCp', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoSubstituicao($obj,c, t); } });
+cifras_selection.push({ titulo: 'ChinÃªs (pequeno)', nome: 'CCp', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoSubstituicao($obj,c, t); } });
