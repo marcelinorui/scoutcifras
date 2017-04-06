@@ -1,5 +1,5 @@
 /*******************************************************************************************************/
-/*                                         Homórafo                                                   */
+/*                                         Homî‰¦afo                                                   */
 /*******************************************************************************************************/
 image_cifra.push({nome: 'CH', dic: [
  { letra: 'A', imagem: 'data:image/gif;base64,R0lGODlhHwAmAPcAAAQEBA0NDRoaGh4eHisrKzMzMzw8PE03N008PEBAQEREREhISE1NTVFERFFRUVVRUVVVVVlVVVlZWV5eXntISHdRUWJiYmZmZmpmZmpqam9vb3dqant7b3Nzc3d3d3t3d3t7e7seHrMiIrsmJv8AAP8NDf8aGv8mJvczM/dNTf9AQPtISP9zZvd3d4CAc4CAgISEhIiIiIyMjJWViJGRkZWVlZ2dnaqdnaKioqKmoqampqqqqq6urrOzs7e3t7u7u7+/v923t+GVlf+AgPuIiP+MjP+mpvuurv+zs/+/v9W7yMTExMjIyMzMzNDQ0NXV1dnZ2ebZ2f/MzPfd3fvV1f/Z2f/m2eHh4ebm5urq6u7u7v/m5vLy8vf39//y8vv7+////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAAHwAmAAAI/wDBCBxIsKDBgwgTKlzIsKHDhxAjSpxIsaLFixgvfqGBo0tGgUtc4JDxUUOACA8A0MjYI4EPHxa4fPyi4YXHjD4yMDAAggdGHTi+wLjy5QWWil864JggwYIFHR2WVNwBQUGCHjp8/HASg+IOHx+YyOiy5MuODB4mPpFB4ygQAQ4GQJiwMuITDxpu1gCyVkMPiVgIdJAp0AOTDDCa7IhYBcWIxQMNUDjwRQtkh0VKkGhBI4fALyJKCLHB5fJCLypIqCYCBgSULalJIOnxwrTCLSdUkzAC5gsCE7qTgJEB5KEV4CSEK7nBQrcUMFlqQDyimsqMIL1XqJ7So8KXiENKcEJ4MtBL7hcNHExMEaUglRAbLiz4nvEGjx0gPoJp8uKHBv1QwPCCdB8B4UABBGK0Aw0yXGABExktgcESPHRwhX4RBQQAOw=='}
@@ -32,4 +32,4 @@ image_cifra.push({nome: 'CH', dic: [
 ]});
 
 
-cifras_selection.push({ titulo: 'Homógrafo', nome: 'CH', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoSubstituicao($obj,c, t); } });
+cifras_selection.push({ titulo: 'HomÃ³rafo', nome: 'CH', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoSubstituicao($obj,c, t); } });
