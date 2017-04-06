@@ -1,5 +1,5 @@
 /*******************************************************************************************************/
-/*                                           Numerico                                                  */
+/*                                           Númerico                                                  */
 /*******************************************************************************************************/
 function CodigoNumerico($obj,codigo,texto) {
 	var dic = [];
@@ -12,4 +12,4 @@ function CodigoNumerico($obj,codigo,texto) {
 	CodificaComDicionario($obj,texto, dic);
 }
 
-cifras_selection.push({ titulo: 'N�merico', nome: 'CN', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoNumerico($obj,c, t); } });
+cifras_selection.push({ titulo: 'Númerico', nome: 'CN', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoNumerico($obj,c, t); } });
