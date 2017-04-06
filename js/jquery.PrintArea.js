@@ -70,7 +70,7 @@
             setTimeout(function(){
                 printWindow.focus();
                 printWindow.print();
-            },5000);
+            },2500);
 
             if ( settings.mode == modes.popup && settings.popClose )
                 printWindow.close();
