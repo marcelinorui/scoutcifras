@@ -1,5 +1,5 @@
 /*******************************************************************************************************/
-/*                                       Primeira/Última Letra Falsa                                   */
+/*                                       Primeira/Ãšltima Letra Falsa                                   */
 /*******************************************************************************************************/
 function GetLetra(){
 	return String.fromCharCode('A'.charCodeAt(0) + Math.floor(Math.random() * 26));
@@ -34,4 +34,5 @@ function CodigoLetraFalsa($obj,codigo,texto,password,ultima){
 	$obj.CodigoOut.innerHTML = appendTxt;
 }
 cifras_selection.push({ titulo: 'Primeira Letra Falsa', nome: 'PLF', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoLetraFalsa($obj,c, t, p,false); } });
-cifras_selection.push({ titulo: 'Última Letra Falsa', nome: 'ULF', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoLetraFalsa($obj,c, t, p,true); } });
+cifras_selection.push({ titulo: 'Ãšltima Letra Falsa', nome: 'ULF', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoLetraFalsa($obj,c, t, p,true); } });
+ 
