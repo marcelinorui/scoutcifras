@@ -59,14 +59,14 @@ function CodigoFCHorizontal($obj,codigo, texto, numero, password){
 }
 
 
-cifras_selection.push({ titulo: 'Fraze Chave Horizontal'
-					  , nome: 'FCH'
+cifras_selection.push({ titulo: 'Frase Chave Horizontal Total'
+					  , nome: 'FCH2'
 					  , password: true
 					  , passwordType: 'text'
 					  , valor: 'palavra'
 					  , cifra: function ($obj,c, t, i, p) { CodigoFCHorizontal($obj,c, t, i, p); } });
-cifras_selection.push({ titulo: 'Fraze Chave Horizontal 2'
-					  , nome: 'PW2'
+cifras_selection.push({ titulo: 'Frase Chave Horizontal'
+					  , nome: 'FCH'
 					  , password: true
 					  , passwordType: 'text'
 					  , valor: 'palavra'
