@@ -1,5 +1,5 @@
 /*******************************************************************************************************/
-/*                                           Chinês                                                    */
+/*                                           Chiné»Œ                                                    */
 /*******************************************************************************************************/
 /*
 http://webcodertools.com/imagetobase64converter/Create
@@ -35,4 +35,4 @@ http://webcodertools.com/imagetobase64converter/Create
 ]});
 
 
-cifras_selection.push({ titulo: 'Chinês', nome: 'CC', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoSubstituicao($obj,c, t); } });
+cifras_selection.push({ titulo: 'ChinÃªs', nome: 'CC', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoSubstituicao($obj,c, t); } });
