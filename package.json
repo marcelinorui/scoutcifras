@@ -1,0 +1,25 @@
+{
+  "name": "scoutcifras",
+  "version": "1.0.0",
+  "description": "scouting cypher and codes project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcelinorui/scoutcifras.git"
+  },
+  "author": "Rui Marcelino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcelinorui/scoutcifras/issues"
+  },
+  "homepage": "https://github.com/marcelinorui/scoutcifras#readme",
+  "devDependencies": {
+    "@types/jquery": "^2.0.43",
+    "bootstrap": "^3.3.7",
+    "jQuery.print": "^1.5.1",
+    "jquery": "^1.12.1"
+  }
+}
