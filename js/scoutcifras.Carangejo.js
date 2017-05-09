@@ -7,7 +7,7 @@ function CodigoCarangejo($obj,codigo, texto) {
 	for (var i = texto.length -1 ; i >= 0; i--) {
 		appendTxt += texto.charAt(i);
 	}
-	$obj.CodigoOut.innerHTML = appendTxt;
+	$obj.CodigoOut.html(appendTxt);
 }
 
 cifras_selection.push({ titulo: 'Carangejo', nome: 'CG', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoCarangejo($obj,c, t); } });

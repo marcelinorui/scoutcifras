@@ -21,6 +21,6 @@ function CodigoMetades($obj,codigo,texto,password){
 			Line1 += appendTxt.charAt(i);
 		}
 	}	
-	$obj.CodigoOut.innerHTML = Line0 + ' ' + Line1;
+	$obj.CodigoOut.html(Line0 + ' ' + Line1);
 }
 cifras_selection.push({ titulo: 'Metades', nome: 'MT', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoMetades($obj,c, t, p); } });

@@ -10,7 +10,7 @@ function Existe(dicionario,letra){
 	}
 	return false;
 }
-function CodigoPassword($obj,codigo, texto, numero, password) {
+function CodigoFCHorizontal($obj,codigo, texto, numero, password) {
 	var code = [];
 	for ( var p = 0 ; p < password.length; p++)	{
 		if (!Existe(code, password.charAt(p))) {
@@ -28,7 +28,7 @@ function CodigoPassword($obj,codigo, texto, numero, password) {
 	CodificaComDicionario($obj,texto, code);
 }
 
-function CodigoFCHorizontal($obj,codigo, texto, numero, password){
+function CodigoFCVertical($obj,codigo, texto, numero, password){
 	var bDic = [];
 	for ( var p = 0 ; p < password.length; p++)	{
 		if (!Existe(bDic, password.charAt(p))) {
@@ -59,15 +59,15 @@ function CodigoFCHorizontal($obj,codigo, texto, numero, password){
 }
 
 
-cifras_selection.push({ titulo: 'Frase Chave Horizontal Total'
-					  , nome: 'FCH2'
+cifras_selection.push({ titulo: 'Frase Chave Vertical'
+					  , nome: 'FCV'
 					  , password: true
 					  , passwordType: 'text'
 					  , valor: 'palavra'
-					  , cifra: function ($obj,c, t, i, p) { CodigoFCHorizontal($obj,c, t, i, p); } });
+					  , cifra: function ($obj,c, t, i, p) { CodigoFCVertical($obj,c, t, i, p); } });
 cifras_selection.push({ titulo: 'Frase Chave Horizontal'
 					  , nome: 'FCH'
 					  , password: true
 					  , passwordType: 'text'
 					  , valor: 'palavra'
-					  , cifra: function ($obj,c, t, i, p) { CodigoPassword($obj,c, t, i, p); } });
+					  , cifra: function ($obj,c, t, i, p) { CodigoFCHorizontal($obj,c, t, i, p); } });

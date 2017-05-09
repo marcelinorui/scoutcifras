@@ -23,7 +23,7 @@ function CodigoData($obj,codigo,texto,password){
 			}
 		}					
 	}	
-	$obj.CodigoOut.innerHTML = appendTxt;
+	$obj.CodigoOut.html(appendTxt);
 }
 
 cifras_selection.push({ titulo: 'Data', nome: 'DA', password: true, passwordType: 'year', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoData($obj,c, t, p); } });

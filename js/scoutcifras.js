@@ -33,38 +33,58 @@
         //
         function format($obj) {
 			 $obj.lastSelectedCodigo = 0;
-			 
-			 $obj.div1 = createTAG("div",{'class':'scoutcifras'});
-			 $obj.Select = createTAG("select",{'class':'scoutcifras scoutcifras-select'});
-			 $obj.scoutcifra_pw = createTAG("div",{'class':'scoutcifras scoutcifras-password'});
-			 $obj.Password = createTAG("input",{'class': 'scoutcifras scoutcifras-text','type': 'text'});
-			 $obj.passwordType = createTAG("span",{'class':'scoutcifras scoutcifras-passwordtype'});
-			 $($obj.scoutcifra_pw).append("<span class='scoutcifras scoutcifras-label'>Password:</span>", $obj.Password ,$obj.passwordType);
-			 $obj.Generate = createTAG("input",{'class':'scoutcifras scoutcifras-button','type': "button",'value': 'Gerar'});
-			 $($obj.div1).append("<span class='scoutcifras scoutcifras-label'>Cifra:</span>",$obj.Select,$obj.scoutcifra_pw,$obj.Generate);
-			 
-			 $obj.div2 = createTAG("div",{'class':'scoutcifras'});
-			 $obj.Texto = createTAG("textarea",{'class':'scoutcifras scoutcifras-textarea', 'rows': 5, 'cols': 50});
-			 $obj.Apagar = createTAG("input",{'class':'scoutcifras scoutcifras-button','type' : "button",'value': 'Apagar'});
-			 $($obj.div2).append("<span class='scoutcifras scoutcifras-label'>Texto a Cifrar:</span>",$obj.Texto,$obj.Apagar)
-			 
-			 $obj.div3 = createTAG("div",{'class':'scoutcifras'})
-			 $obj.CodigoOut = createTAG("div",{'class':'scoutcifras scoutcifras-cipheredtext'});
-			 $obj.Print = createTAG("input",{'class':'scoutcifras scoutcifras-button','type' : 'button','value': 'Imprimir'});
-			 $($obj.div3).append("<span class='scoutcifras scoutcifras-label'>Texto Cifrado:</span>",$obj.CodigoOut, $obj.Print);
-			 
-			 $obj.append($obj.div1);
-			 $obj.append($obj.div2);
-			 $obj.append($obj.div3);			 
+			 var html = '<div class="form-horizontal">'+
+							'<div class="form-group">'+
+								'<label class="col-md-2 control-label">Cifra</label>'+
+								'<div class="col-md-2"><select class="form-control" id="scoutcifras-select"></select></div>'+
+							 '</div>'+
+							 '<div class="form-group" id="scoutcifras-password">'+
+								'<label class="col-md-2 control-label">Password</label>'+
+								'<div class="col-md-2"><input class="form-control" type="text" id="scoutcifras-password-input"/>'+
+									'<span id="scoutcifras-password-type" class="help-block"></span>'+
+								'</div>'+								
+							'</div>'+
+							'<div class="form-group">'+
+								'<label class="col-md-2 control-label">Texto a Cifrar</label>'+
+								'<div class="col-md-7"><textarea class="form-control" id="scoutcifras-input" rows="5"></textarea></div>'+
+								'<div class="col-md-2">'+
+									'<button type="button" class="btn btn-block btn-default" id="btn-apagar">Apagar</button><br />'+
+									'<button type="button" class="btn btn-block btn-primary" id="btn-gerar">Gerar</button>'+
+								'</div>'+
+							'</div>'+
+							'<div class="form-group">'+
+								'<label class="col-md-2 control-label">Texto Cifrado</label>'+
+								'<div class="col-md-7"><div id="scoutcifras-output" style="padding: 6px 12px;color: #555;background-color: #fff;background-image: none;border: 1px solid #ccc;border-radius: 4px;font-size: 14px;box-shadow: inset 0 1px 1px rgba(0,0,0,.075);line-height: 1.42857143;transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;min-height: 34px;"></div></div>'+
+								'<div class="col-md-2">'+
+									'<button type="button" class="btn btn-block btn-default" id="btn-imprimir">Imprimir</button>'+									
+								'</div>'
+							'</div>'+
+						'</div>';
+
+			$obj.append(html);
+			
+			
+			$obj.Select = $obj.find('#scoutcifras-select');
+			$obj.scoutcifra_pw = $obj.find('#scoutcifras-password');
+			$obj.Password = $obj.find('#scoutcifras-password-input');
+			$obj.PasswordType = $obj.find('#scoutcifras-password-type');
+			
+			$obj.Generate = $obj.find('#btn-gerar');
+			$obj.Texto = $obj.find('#scoutcifras-input');
+			$obj.Apagar = $obj.find('#btn-apagar');
+			
+			$obj.CodigoOut = $obj.find('#scoutcifras-output');
+			$obj.Print = $obj.find('#btn-imprimir');
+						 
 		};
 				
-		function ClearCodigo($obj){$($obj.CodigoOut).children().remove();$obj.CodigoOut.innerHTML = "";};
+		function ClearCodigo($obj){$obj.CodigoOut.html('');};
 		
 		function GenerateCode($obj){
 			ClearCodigo($obj);
-			var cod = cifras_selection[$($obj.Select).prop("selectedIndex")];
-            var texto = removeDiacritics($($obj.Texto).val().toString().toUpperCase());
-            var password = removeDiacritics($($obj.Password).val().toString().toUpperCase());
+			var cod = cifras_selection[$obj.Select.prop('selectedIndex')];
+            var texto = removeDiacritics($obj.Texto.val().toString().toUpperCase());
+            var password = removeDiacritics($obj.Password.val().toString().toUpperCase());
 			cod.valor = password;
             cod.cifra($obj, cod.nome, texto, cod.valor, password);
 		};
@@ -75,11 +95,11 @@
 				var re=/^[A-z]+$/; 
 				if ( !re.test(texto) )
 				{
-					$($obj.passwordType).show();
+					$obj.PasswordType.show();
 				}
 				else
 				{
-					$($obj.passwordType).hide();
+					$obj.PasswordType.hide();
 				}
 			}
 		};
@@ -90,11 +110,11 @@
 			{
 				if ( isNaN(texto) || (texto.length > 0 && texto.length < 4 ))
 				{
-					$($obj.passwordType).show();
+					$obj.PasswordType.show();
 				}
 				else
 				{
-					$($obj.passwordType).hide();
+					$obj.PasswordType.hide();
 				}
 			}
 		}
@@ -106,40 +126,39 @@
 			{
 				if ( isNaN(texto))
 				{
-					$($obj.passwordType).show();
+					$obj.PasswordType.show();
 				}
 				else
 				{
-					$($obj.passwordType).hide();
+					$obj.PasswordType.hide();
 				}
 			}
 		};
        
 	    function init($obj){
 			for (var i = 0; i < cifras_selection.length; i++) {
-				$($obj.Select).append('<option>' + cifras_selection[i].titulo + '</option>');
+				$obj.Select.append('<option>' + cifras_selection[i].titulo + '</option>');
             }			
-			 $($obj.Apagar).bind('click', function () {
+			
+			$obj.Apagar.on('click', function () {
                 ClearCodigo($obj);
-                $($obj.Texto).val('');
+                $obj.Texto.val('');
             });
 			
-			$($obj.Generate).bind('click', function () {
+			$obj.Generate.on('click', function () {
                 GenerateCode($obj);
             });
 			
-			$($obj.Print).bind('click', function() { 
-				$newdiv = $($obj.CodigoOut).clone();
-				$($newdiv).removeClass('scoutcifras')
-				$($newdiv).removeClass('scoutcifras-cipheredtext');
-				$($newdiv).printArea();
+			$obj.Print.on('click', function() { 
+				$newdiv = $obj.CodigoOut.clone();
+				$($newdiv).removeClass('scoutcifras').removeClass('scoutcifras-cipheredtext').printArea();
 			});
 			
-			 $($obj.Select).bind('change keyup keydown focusin focusout select' ,function () {
+			$obj.Select.on('change keyup keydown focusin focusout select' ,function() {
 				MudaDeCifra($obj);
 			});
 			
-			$($obj.Texto).bind('change keyup keydown focusin focusout select',function(){
+			$obj.Texto.on('change keyup keydown focusin focusout select',function() {
                 GenerateCode($obj);
 			});
 			
@@ -148,7 +167,7 @@
        
 		
 		function MudaDeCifra($obj){
-			var selectedCodigo = $($obj.Select).prop('selectedIndex');
+			var selectedCodigo = $obj.Select.prop('selectedIndex');
 			var selectedCifra = cifras_selection[selectedCodigo];
 			
 			if (selectedCifra.password)
@@ -157,39 +176,38 @@
 				if  ( selectedCifra.passwordType.length > -1)
 				{
 				
-					$($obj.passwordType).text('');
-					$($obj.Password).unbind('change keyup keydown focusin focusout select');
-					$($obj.Password).bind('change keyup keydown focusin focusout select',function(){
+					$obj.PasswordType.text('');
+					$obj.Password.off().on('change keyup keydown focusin focusout select',function(){
 						GenerateCode($obj); 
 					});
-					if ( selectedCifra.passwordType == 'text')
+					if ( selectedCifra.passwordType === 'text')
 					{
-						$($obj.passwordType).text('Insira apenas texto');
-						$($obj.Password).bind('change keyup keydown focusin focusout select',function(){ ValidateText($obj);});
+						$obj.PasswordType.text('Insira apenas texto');
+						$obj.Password.on('change keyup keydown focusin focusout select',function(){ ValidateText($obj);});
 					}
-					else if( selectedCifra.passwordType == 'numeric') 
+					else if( selectedCifra.passwordType === 'numeric') 
 					{
-						$($obj.passwordType).text('Insira um n�mero');
-						$($obj.Password).bind('change keyup keydown focusin focusout select',function(){ ValidateNumber($obj) ;});
+						$obj.PasswordType.text('Insira um n�mero');
+						$obj.Password.on('change keyup keydown focusin focusout select',function(){ ValidateNumber($obj) ;});
 					}
-					else if( selectedCifra.passwordType == 'year') 
+					else if( selectedCifra.passwordType === 'year') 
 					{
-						$($obj.passwordType).text('Insira um ano');
-						$($obj.Password).bind('change keyup keydown focusin focusout select',function(){ ValidateYear($obj) ;});
+						$obj.PasswordType.text('Insira um ano');
+						$obj.Password.on('change keyup keydown focusin focusout select',function(){ ValidateYear($obj) ;});
 					}
-					$($obj.passwordType).hide();					
+					$obj.PasswordType.hide();					
 				}
 			}
 			else
 			{
-				$($obj.scoutcifra_pw).hide();
+				$obj.scoutcifra_pw.hide();
 			}
 			
-			$($obj.Password).val(selectedCifra.valor);
+			$obj.Password.val(selectedCifra.valor);
 			
 			if (selectedCodigo > 0 && $obj.lastSelectedCodigo != selectedCodigo) {
 				$obj.lastSelectedCodigo = selectedCodigo;
-				if ($($obj.Texto).val().toString().length > 0) {
+				if ($obj.Texto.val().toString().length > 0) {
 					GenerateCode($obj);                        
 				} 
 			}
@@ -310,14 +328,14 @@
 	}
 	
 	function CodificaComDicionario($obj,texto, dicionario) {
-		$obj.CodigoOut.innerHTML = TraduzTextoComDicionario(texto,dicionario);
+		$obj.CodigoOut.html(TraduzTextoComDicionario(texto,dicionario));
 	}
 	
 	function CodigoSubstituicao($obj,codigo,texto) {
 		var A = "A".charCodeAt(0);
 		var Z = "Z".charCodeAt(0);
 		var Space = " ".charCodeAt(0);
-		var CodigoOut = document.getElementById("CodigoOut");
+		//var CodigoOut = document.getElementById("CodigoOut");
 		for (var i = 0; i < texto.length; i++) {
 			var chr = texto.charCodeAt(i);
 			if ((chr >= A && chr <= Z) || chr == Space) {
@@ -325,11 +343,11 @@
 			} else {
 				if (texto.charAt(i) == "\n") {
 					var br = document.createElement("br");
-					$obj.CodigoOut.appendChild(br);
-					$obj.CodigoOut.appendChild(br);
+					$obj.CodigoOut.append(br);
+					$obj.CodigoOut.append(br);
 				}
 				else {
-					$obj.CodigoOut.appendChild(document.createTextNode(texto.charAt(i)));
+					$obj.CodigoOut.append(document.createTextNode(texto.charAt(i)));
 				}
 			}
 		}
@@ -347,7 +365,7 @@
 	// 	pai.appendChild(i);
 	// }
 		
-	function AppendCodedChar(pai, codigo, caracter) {
+	function AppendCodedChar($pai, codigo, caracter) {
 		var i = document.createElement('IMG');
 		if (caracter == ' ') {
 			i.setAttribute('src', GetCifra(codigo,'Espaco'));
@@ -355,7 +373,7 @@
 		else {
 			i.setAttribute('src',GetCifra(codigo,caracter));
 		}
-		pai.appendChild(i);
+		$pai.append(i);
 	}
 	
 	function GetCifra(codigo,letra){

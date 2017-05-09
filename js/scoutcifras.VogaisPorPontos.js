@@ -19,6 +19,6 @@ function CodigoVogaisPorPontos($obj,codigo,texto,password){
 				}
 			}
 	}
-	$obj.CodigoOut.innerHTML = appendTxt;
+	$obj.CodigoOut.html(appendTxt);
 }
 cifras_selection.push({ titulo: 'Vogais por Pontos', nome: 'VP', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoVogaisPorPontos($obj,c, t, p); } });

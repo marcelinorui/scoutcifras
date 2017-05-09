@@ -31,7 +31,7 @@ function CodigoLetraFalsa($obj,codigo,texto,password,ultima){
 		
 		texto.replace(match[0],'');
 	}
-	$obj.CodigoOut.innerHTML = appendTxt;
+	$obj.CodigoOut.html(appendTxt);
 }
 cifras_selection.push({ titulo: 'Primeira Letra Falsa', nome: 'PLF', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoLetraFalsa($obj,c, t, p,false); } });
 cifras_selection.push({ titulo: 'Última Letra Falsa', nome: 'ULF', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoLetraFalsa($obj,c, t, p,true); } });

@@ -27,10 +27,10 @@ function PassaMelro($obj, codigo, texto, melro) {
 			}
 		}
 	}
-	$obj.CodigoOut.innerHTML = textoFinal;
+	$obj.CodigoOut.html(textoFinal);
 }
 
 //cifras_selection.push({ titulo: 'Passa Um Melro', nome: 'PM', password: false, passwordType: '', valor: 1, cifra: function (c, t, i, p) { PassaMelro(c, t, i); } });
 //cifras_selection.push({ titulo: 'Passa Dois Melros', nome: 'P2M', password: false, passwordType: '', valor: 2, cifra: function (c, t, i, p) { PassaMelro(c, t, i); } });
-//cifras_selection.push({ titulo: 'Passa Três Melros', nome: 'P3M', password: false, passwordType: '', valor: 3, cifra: function (c, t, i, p) { PassaMelro(c, t, i); } });
+//cifras_selection.push({ titulo: 'Passa Trï¿½s Melros', nome: 'P3M', password: false, passwordType: '', valor: 3, cifra: function (c, t, i, p) { PassaMelro(c, t, i); } });
 cifras_selection.push({ titulo: 'Passa N Melros', nome: 'PNM', password: true, passwordType: 'numeric', valor: 2, cifra: function ($obj,c, t, i, p) { PassaMelro($obj,c, t, p); } });

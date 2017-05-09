@@ -51,6 +51,6 @@ function CodigoBatalhaNaval($obj,codigo,texto,password){
 			}
 		}		
 	}	
-	$obj.CodigoOut.innerHTML = appendTxt;
+	$obj.CodigoOut.html(appendTxt);
 }
 cifras_selection.push({ titulo: 'Batalha Naval', nome: 'BN', password: true, passwordType: 'text', valor: 'J', cifra: function ($obj,c, t, i, p) { CodigoBatalhaNaval($obj,c, t, i, p); } });
