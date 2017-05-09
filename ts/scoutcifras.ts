@@ -1,3 +1,19 @@
+import { ICifraSelection } from "./ICifraSelection";
+import { IImageCifra, IImageCifraDicItem } from "./IImageCifra";
+
+interface IScoutCifra extends JQuery {
+	Select:JQuery,
+	scoutcifra_pw:JQuery,
+	Password :JQuery,
+	PasswordType :JQuery,
+	Generate:JQuery,
+	Texto :JQuery,
+	Apagar :JQuery,
+	CodigoOut:JQuery,
+	Print :JQuery,
+	lastSelectedCodigo: number
+}
+
 (function ($) {
 	//
 	// plugin definition
@@ -10,7 +26,7 @@
 
 		// iterate and reformat each matched element
 		return this.each(() => {
-			let $this = $(this);
+			let $this =<IScoutCifra> $(this);
 			// call our format function
 			format($this);
 			// init object
@@ -31,35 +47,35 @@
 	//
 	// define and expose our format function
 	//
-	function format($obj) {
+	function format($obj:IScoutCifra) {
 		$obj.lastSelectedCodigo = 0;
 		let html = 
 			'<div class="form-horizontal">' +
-			'<div class="form-group">' +
-			'<label class="col-md-2 control-label">Cifra</label>' +
-			'<div class="col-md-2"><select class="form-control" id="scoutcifras-select"></select></div>' +
-			'</div>' +
-			'<div class="form-group" id="scoutcifras-password">' +
-			'<label class="col-md-2 control-label">Password</label>' +
-			'<div class="col-md-2"><input class="form-control" type="text" id="scoutcifras-password-input"/>' +
-			'<span id="scoutcifras-password-type" class="help-block"></span>' +
-			'</div>' +
-			'</div>' +
-			'<div class="form-group">' +
-			'<label class="col-md-2 control-label">Texto a Cifrar</label>' +
-			'<div class="col-md-7"><textarea class="form-control" id="scoutcifras-input" rows="5"></textarea></div>' +
-			'<div class="col-md-2">' +
-			'<button type="button" class="btn btn-block btn-default" id="btn-apagar">Apagar</button><br />' +
-			'<button type="button" class="btn btn-block btn-primary" id="btn-gerar">Gerar</button>' +
-			'</div>' +
-			'</div>' +
-			'<div class="form-group">' +
-			'<label class="col-md-2 control-label">Texto Cifrado</label>' +
-			'<div class="col-md-7"><div id="scoutcifras-output" style="padding: 6px 12px;color: #555;background-color: #fff;background-image: none;border: 1px solid #ccc;border-radius: 4px;font-size: 14px;box-shadow: inset 0 1px 1px rgba(0,0,0,.075);line-height: 1.42857143;transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;min-height: 34px;"></div></div>' +
-			'<div class="col-md-2">' +
-			'<button type="button" class="btn btn-block btn-default" id="btn-imprimir">Imprimir</button>' +
-			'</div>'
-		'</div>' +
+				'<div class="form-group">' +
+					'<label class="col-md-2 control-label">Cifra</label>' +
+					'<div class="col-md-2"><select class="form-control" id="scoutcifras-select"></select></div>' +
+				'</div>' +
+				'<div class="form-group" id="scoutcifras-password">' +
+					'<label class="col-md-2 control-label">Password</label>' +
+					'<div class="col-md-2"><input class="form-control" type="text" id="scoutcifras-password-input"/>' +
+						'<span id="scoutcifras-password-type" class="help-block"></span>' +
+					'</div>' +
+				'</div>' +
+				'<div class="form-group">' +
+					'<label class="col-md-2 control-label">Texto a Cifrar</label>' +
+					'<div class="col-md-7"><textarea class="form-control" id="scoutcifras-input" rows="5"></textarea></div>' +
+					'<div class="col-md-2">' +
+						'<button type="button" class="btn btn-block btn-default" id="btn-apagar">Apagar</button><br />' +
+						'<button type="button" class="btn btn-block btn-primary" id="btn-gerar">Gerar</button>' +
+					'</div>' +
+				'</div>' +
+				'<div class="form-group">' +
+					'<label class="col-md-2 control-label">Texto Cifrado</label>' +
+					'<div class="col-md-7"><div id="scoutcifras-output" style="padding: 6px 12px;color: #555;background-color: #fff;background-image: none;border: 1px solid #ccc;border-radius: 4px;font-size: 14px;box-shadow: inset 0 1px 1px rgba(0,0,0,.075);line-height: 1.42857143;transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;min-height: 34px;"></div></div>' +
+					'<div class="col-md-2">' +
+						'<button type="button" class="btn btn-block btn-default" id="btn-imprimir">Imprimir</button>' +
+					'</div>'+
+				'</div>' +
 			'</div>';
 
 		$obj.append(html);
@@ -79,18 +95,18 @@
 
 	};
 
-	function ClearCodigo($obj) { $obj.CodigoOut.html(''); };
+	function ClearCodigo($obj:JQuery):void { $obj.CodigoOut.html(''); };
 
-	function GenerateCode($obj) {
+	function GenerateCode($obj:JQuery) {
 		ClearCodigo($obj);
 		let cod = cifras_selection[$obj.Select.prop('selectedIndex')];
 		let texto = removeDiacritics($obj.Texto.val().toString().toUpperCase());
 		let password = removeDiacritics($obj.Password.val().toString().toUpperCase());
-		cod.valor = password;
+		cod.valor = <string|number|null>password;
 		cod.cifra($obj, cod.nome, texto, cod.valor, password);
 	};
 
-	function ValidateText($obj) {
+	function ValidateText($obj:JQuery):void {
 		let texto = $($obj.Password).val().toString();
 		if (texto.length > 0) {
 			let re = /^[A-z]+$/;
@@ -103,7 +119,7 @@
 		}
 	};
 
-	function ValidateYear($obj) {
+	function ValidateYear($obj:JQuery):void {
 		let texto = $($obj.Password).val().toString();
 		if (texto.length > 0) {
 			if (isNaN(texto) || (texto.length > 0 && texto.length < 4)) {
@@ -115,7 +131,7 @@
 		}
 	}
 
-	function ValidateNumber($obj) {
+	function ValidateNumber($obj:JQuery):void {
 		let texto = $($obj.Password).val().toString();
 
 		if (texto.length > 0) {
@@ -128,7 +144,7 @@
 		}
 	};
 
-	function init($obj) {
+	function init($obj:JQuery):void {
 		for (let i = 0; i < cifras_selection.length; i++) {
 			$obj.Select.append('<option>' + cifras_selection[i].titulo + '</option>');
 		}
@@ -159,8 +175,8 @@
 	};
 
 
-	function MudaDeCifra($obj) {
-		let selectedCodigo = $obj.Select.prop('selectedIndex');
+	function MudaDeCifra($obj:JQuery) {
+		let selectedCodigo:number = $obj.Select.prop('selectedIndex');
 		let selectedCifra = cifras_selection[selectedCodigo];
 
 		if (selectedCifra.password) {
@@ -176,7 +192,7 @@
 					$obj.Password.on('change keyup keydown focusin focusout select', function () { ValidateText($obj); });
 				}
 				else if (selectedCifra.passwordType === 'numeric') {
-					$obj.PasswordType.text('Insira um n�mero');
+					$obj.PasswordType.text('Insira um número');
 					$obj.Password.on('change keyup keydown focusin focusout select', function () { ValidateNumber($obj); });
 				}
 				else if (selectedCifra.passwordType === 'year') {
@@ -205,7 +221,7 @@
 	//
 })(jQuery);
 
-let cifras_selection = [{ titulo: '', nome: '', password: false, passwordType: '', valor: 0, cifra: function ($obj, c, t, i, p) { } }];
+let cifras_selection:Array<ICifraSelection> = [{ titulo: '', nome: '', password: false, passwordType: '',valor: 0, cifra: function ($obj, c, t, i, p) { } }];
 
 let defaultDiacriticsRemovalMap = [
 	{ 'base': 'A', 'letters': /[\u0041\u24B6\uFF21\u00C0\u00C1\u00C2\u1EA6\u1EA4\u1EAA\u1EA8\u00C3\u0100\u0102\u1EB0\u1EAE\u1EB4\u1EB2\u0226\u01E0\u00C4\u01DE\u1EA2\u00C5\u01FA\u01CD\u0200\u0202\u1EA0\u1EAC\u1EB6\u1E00\u0104\u023A\u2C6F]/g },
@@ -254,7 +270,7 @@ let defaultDiacriticsRemovalMap = [
 ];
 
 let changes;
-function removeDiacritics(str) {
+function removeDiacritics(str:string):string {
 	if (!changes) {
 		changes = defaultDiacriticsRemovalMap;
 	}
@@ -264,7 +280,7 @@ function removeDiacritics(str) {
 	return str;
 }
 
-function TraduzTextoComDicionario(texto, dicionario) {
+function TraduzTextoComDicionario(texto:string, dicionario:Map<string,string>) {
 	let appendTxt = "";
 
 	let A = "A".charCodeAt(0);
@@ -292,7 +308,7 @@ function TraduzTextoComDicionario(texto, dicionario) {
 	return appendTxt;
 }
 
-function AplicaDicionario(texto, dicionario) {
+function AplicaDicionario(texto:string, dicionario:Map<string,string>) {
 	let appendTxt = "";
 
 	let A = "A".charCodeAt(0);
@@ -312,15 +328,15 @@ function AplicaDicionario(texto, dicionario) {
 	return appendTxt;
 }
 
-function CodificaComDicionario($obj, texto, dicionario) {
+function CodificaComDicionario($obj, texto:string, dicionario:Map<string,string>) {
 	$obj.CodigoOut.html(TraduzTextoComDicionario(texto, dicionario));
 }
 
-function CodigoSubstituicao($obj, codigo, texto) {
+function CodigoSubstituicao($obj, codigo:string, texto:string) {
 	let A = "A".charCodeAt(0);
 	let Z = "Z".charCodeAt(0);
 	let Space = " ".charCodeAt(0);
-	//let CodigoOut = document.getElementById("CodigoOut");
+
 	for (let i = 0; i < texto.length; i++) {
 		let chr = texto.charCodeAt(i);
 		if ((chr >= A && chr <= Z) || chr == Space) {
@@ -350,7 +366,7 @@ function CodigoSubstituicao($obj, codigo, texto) {
 // 	pai.appendChild(i);
 // }
 
-function AppendCodedChar($pai, codigo, caracter) {
+function AppendCodedChar($pai, codigo:string, caracter:string):void {
 	let i = document.createElement('IMG');
 	if (caracter === ' ') {
 		i.setAttribute('src', GetCifra(codigo, 'Espaco'));
@@ -361,7 +377,7 @@ function AppendCodedChar($pai, codigo, caracter) {
 	$pai.append(i);
 }
 
-function GetCifra(codigo, letra) {
+function GetCifra(codigo:string, letra:string):string {
 	for (let i = 0; i < image_cifra.length; i++) {
 		if (image_cifra[i].nome == codigo) {
 			for (let j = 0; j < image_cifra[i].dic.length; j++) {
@@ -369,9 +385,9 @@ function GetCifra(codigo, letra) {
 					return image_cifra[i].dic[j].imagem;
 				}
 			}
-			return image_cifra[i].dic;
 		}
 	}
+	return '';
 }
 
-let image_cifra = [{ nome: '', dic: [{ letra: '', imagem: '' }] }];
+let image_cifra:Array<IImageCifra> = [{ nome: '', dic: [{ letra: '', imagem: '' }] }];
