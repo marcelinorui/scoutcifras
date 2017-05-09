@@ -10,4 +10,4 @@ function CodigoCaranguejo($obj,codigo, texto) {
 	$obj.CodigoOut.html(appendTxt);
 }
 
-cifras_selection.push({ titulo: 'Caranguejo', nome: 'CG', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoCarangejo($obj,c, t); } });
+cifras_selection.push({ titulo: 'Caranguejo', nome: 'CG', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoCaranguejo($obj,c, t); } });
