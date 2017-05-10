@@ -40,7 +40,7 @@
 							 '</div>'+
 							 '<div class="form-group" id="scoutcifras-password">'+
 								'<label class="col-md-3 col-xs-3 col-sm-3 control-label">Password</label>'+
-								'<div class="col-md-3 col-xs-3 col-sm-3"><input class="form-control" type="text" id="scoutcifras-password-input"/>'+
+								'<div class="col-md-4 col-xs-4 col-sm-4"><input class="form-control" type="text" id="scoutcifras-password-input"/>'+
 									'<span id="scoutcifras-password-type" class="help-block"></span>'+
 								'</div>'+								
 							'</div>'+
