@@ -32,4 +32,4 @@ image_cifra.push({nome: 'CH', dic: [
 ]});
 
 
-cifras_selection.push({ titulo: 'Homórafo', nome: 'CH', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoSubstituicao($obj,c, t); } });
+cifras_selection.push({ titulo: 'Homógrafo', nome: 'CH', password: false, passwordType: '', valor: 0, cifra: function ($obj,c, t, i, p) { CodigoSubstituicao($obj,c, t); } });
