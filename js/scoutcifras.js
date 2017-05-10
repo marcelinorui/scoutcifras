@@ -36,7 +36,7 @@
 			 var html = '<div class="form-horizontal">'+
 							'<div class="form-group">'+
 								'<label class="col-md-3 col-xs-3 col-sm-3 control-label">Cifra</label>'+
-								'<div class="col-md-6 col-xs-6 col-sm-6"><select class="form-control" id="scoutcifras-select"></select></div>'+
+								'<div class="col-md-7 col-xs-7 col-sm-7"><select class="form-control" id="scoutcifras-select"></select></div>'+
 							 '</div>'+
 							 '<div class="form-group" id="scoutcifras-password">'+
 								'<label class="col-md-3 col-xs-3 col-sm-3 control-label">Password</label>'+
