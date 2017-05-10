@@ -48,15 +48,15 @@
 								'<label class="col-md-3 col-xs-3 col-sm-3 control-label">Texto a Cifrar</label>'+
 								'<div class="col-md-7 col-xs-7 col-sm-7"><textarea class="form-control" id="scoutcifras-input" rows="5"></textarea></div>'+
 								'<div class="col-md-2 col-xs-2 col-sm-2">'+
-									'<button type="button" class="btn btn-block btn-default" id="btn-apagar">Apagar</button><br />'+
-									'<button type="button" class="btn btn-block btn-primary" id="btn-gerar">Gerar</button>'+
+									'<button type="button" class="btn btn-block btn-sm btn-default" id="btn-apagar">Apagar</button><br />'+
+									'<button type="button" class="btn btn-block btn-sm btn-primary" id="btn-gerar">Gerar</button>'+
 								'</div>'+
 							'</div>'+
 							'<div class="form-group">'+
 								'<label class="col-md-3 col-xs-3 col-sm-3 control-label">Texto Cifrado</label>'+
 								'<div class="col-md-7 col-xs-7 col-sm-7"><div id="scoutcifras-output" style="padding: 6px 12px;color: #555;background-color: #fff;background-image: none;border: 1px solid #ccc;border-radius: 4px;font-size: 16px;box-shadow: inset 0 1px 1px rgba(0,0,0,.075);line-height: 1.42857143;transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;min-height: 34px;"></div></div>'+
 								'<div class="col-md-2 col-xs-2 col-sm-2">'+
-									'<button type="button" class="btn btn-block btn-default" id="btn-imprimir">Imprimir</button>'+									
+									'<button type="button" class="btn btn-block btn-sm btn-default" id="btn-imprimir">Imprimir</button>'+									
 								'</div>'
 							'</div>'+
 						'</div>';
@@ -187,7 +187,7 @@
 					}
 					else if( selectedCifra.passwordType === 'numeric') 
 					{
-						$obj.PasswordType.text('Insira um n�mero');
+						$obj.PasswordType.text('Insira um número');
 						$obj.Password.on('change keyup keydown focusin focusout select',function(){ ValidateNumber($obj) ;});
 					}
 					else if( selectedCifra.passwordType === 'year') 
