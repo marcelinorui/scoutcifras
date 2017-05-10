@@ -27,6 +27,8 @@ var config = {
     jspath: './js'
 };
 
+var isVerbose = args.verbose;
+
 function checkExistsDir(name) {
     try {
         fs.accessSync(name);
@@ -113,4 +115,9 @@ gulp.task('clean-css', false, function () {
     return clean([config.tmppath, config.csspath]);
 });
 
-gulp.task('build-less',['build-less-bootstrap','build-less-bootstrap-theme'],function(){})
+gulp.task('build-less',['build-less-bootstrap','build-less-bootstrap-theme'],function(){});
+
+
+gulp.task('build-css',['build-less'],function(){
+    return buildCss('scoutcifras', config.csspath + '/');
+});

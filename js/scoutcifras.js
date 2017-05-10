@@ -35,12 +35,12 @@
 			 $obj.lastSelectedCodigo = 0;
 			 var html = '<div class="form-horizontal">'+
 							'<div class="form-group">'+
-								'<label class="col-md-2 col-xs-2 col-sm-2 control-label">Cifra</label>'+
-								'<div class="col-md-2 col-xs-2 col-sm-2"><select class="form-control" id="scoutcifras-select"></select></div>'+
+								'<label class="col-md-3 col-xs-3 col-sm-3 control-label">Cifra</label>'+
+								'<div class="col-md-7 col-xs-7 col-sm-7"><select class="form-control" id="scoutcifras-select"></select></div>'+
 							 '</div>'+
 							 '<div class="form-group" id="scoutcifras-password">'+
 								'<label class="col-md-2 col-xs-2 col-sm-2 control-label">Password</label>'+
-								'<div class="col-md-2 col-xs-2 col-sm-2"><input class="form-control" type="text" id="scoutcifras-password-input"/>'+
+								'<div class="col-md-7 col-xs-7 col-sm-7"><input class="form-control" type="text" id="scoutcifras-password-input"/>'+
 									'<span id="scoutcifras-password-type" class="help-block"></span>'+
 								'</div>'+								
 							'</div>'+
